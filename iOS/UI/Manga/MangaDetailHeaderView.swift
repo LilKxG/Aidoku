@@ -3,6 +3,7 @@
 //  Aidoku (iOS)
 //
 //  Created by Skitty on 1/1/23.
+// 章节 头
 //
 
 import UIKit
@@ -130,10 +131,10 @@ class MangaDetailHeaderView: UIView {
     lazy var bookmarkButton = makeActionButton(symbolName: "bookmark.fill")
 
     // tracker menu button
-    private lazy var trackerButton = makeActionButton(symbolName: "clock.arrow.2.circlepath")
+//    private lazy var trackerButton = makeActionButton(symbolName: "clock.arrow.2.circlepath")
 
     // view web page button
-    private lazy var safariButton = makeActionButton(symbolName: "safari")
+//    private lazy var safariButton = makeActionButton(symbolName: "safari")
 
     /// Returns a button for use in `buttonStackView`.
     func makeActionButton(symbolName: String) -> UIButton {
@@ -227,17 +228,17 @@ class MangaDetailHeaderView: UIView {
         bookmarkButton.addTarget(self, action: #selector(bookmarkHoldBegan), for: .touchDown)
         bookmarkButton.addTarget(self, action: #selector(bookmarkHoldCancelled), for: .touchCancel)
         bookmarkButton.addTarget(self, action: #selector(bookmarkHoldCancelled), for: .touchDragExit)
-        safariButton.addTarget(self, action: #selector(safariPressed), for: .touchUpInside)
-        safariButton.addTarget(self, action: #selector(safariHoldBegan), for: .touchDown)
-        safariButton.addTarget(self, action: #selector(safariHoldCancelled), for: [.touchCancel, .touchDragExit])
-        trackerButton.addTarget(self, action: #selector(trackerPressed), for: .touchUpInside)
+//        safariButton.addTarget(self, action: #selector(safariPressed), for: .touchUpInside)
+//        safariButton.addTarget(self, action: #selector(safariHoldBegan), for: .touchDown)
+//        safariButton.addTarget(self, action: #selector(safariHoldCancelled), for: [.touchCancel, .touchDragExit])
+//        trackerButton.addTarget(self, action: #selector(trackerPressed), for: .touchUpInside)
         readButton.addTarget(self, action: #selector(readPressed), for: .touchUpInside)
 
         let coverImageLongPress = TouchDownGestureRecognizer(target: self, action: #selector(coverPressed))
         coverImageView.addGestureRecognizer(coverImageLongPress)
         coverImageView.addOverlay(color: .black)
 
-        trackerButton.isHidden = !TrackerManager.shared.hasAvailableTrackers
+//        trackerButton.isHidden = !TrackerManager.shared.hasAvailableTrackers
 
         addSubview(stackView)
         stackView.addArrangedSubview(coverStackView)
@@ -253,8 +254,8 @@ class MangaDetailHeaderView: UIView {
         titleStackView.setCustomSpacing(10, after: labelStackView)
         titleStackView.addArrangedSubview(buttonStackView)
         buttonStackView.addArrangedSubview(bookmarkButton)
-        buttonStackView.addArrangedSubview(trackerButton)
-        buttonStackView.addArrangedSubview(safariButton)
+//        buttonStackView.addArrangedSubview(trackerButton)
+//        buttonStackView.addArrangedSubview(safariButton)
         stackView.addArrangedSubview(descriptionLabel)
         stackView.setCustomSpacing(12, after: descriptionLabel)
         stackView.addArrangedSubview(tagScrollView)
@@ -275,10 +276,10 @@ class MangaDetailHeaderView: UIView {
 
             bookmarkButton.widthAnchor.constraint(equalToConstant: bookmarkButton.frame.size.width),
             bookmarkButton.heightAnchor.constraint(equalToConstant: bookmarkButton.frame.size.height),
-            trackerButton.widthAnchor.constraint(equalToConstant: trackerButton.frame.size.width),
-            trackerButton.heightAnchor.constraint(equalToConstant: trackerButton.frame.size.height),
-            safariButton.widthAnchor.constraint(equalToConstant: safariButton.frame.size.width),
-            safariButton.heightAnchor.constraint(equalToConstant: safariButton.frame.size.height),
+//            trackerButton.widthAnchor.constraint(equalToConstant: trackerButton.frame.size.width),
+//            trackerButton.heightAnchor.constraint(equalToConstant: trackerButton.frame.size.height),
+//            safariButton.widthAnchor.constraint(equalToConstant: safariButton.frame.size.width),
+//            safariButton.heightAnchor.constraint(equalToConstant: safariButton.frame.size.height),
 
             tagScrollView.heightAnchor.constraint(equalToConstant: 26),
             tagScrollView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
@@ -325,11 +326,11 @@ class MangaDetailHeaderView: UIView {
             contentRatingLabelView.isHidden = true
         }
 
-        let isTracking = TrackerManager.shared.isTracking(sourceId: manga.sourceId, mangaId: manga.id)
-        trackerButton.tintColor = isTracking ? .white : tintColor
-        trackerButton.backgroundColor = isTracking ? tintColor : .secondarySystemFill
+//        let isTracking = TrackerManager.shared.isTracking(sourceId: manga.sourceId, mangaId: manga.id)
+//        trackerButton.tintColor = isTracking ? .white : tintColor
+//        trackerButton.backgroundColor = isTracking ? tintColor : .secondarySystemFill
 
-        safariButton.isHidden = manga.url == nil
+//        safariButton.isHidden = manga.url == nil
 
         load(tags: manga.tags ?? [])
 
@@ -480,12 +481,12 @@ class MangaDetailHeaderView: UIView {
     }
 
     func reloadTrackerButton() {
-        if let manga = manga {
-            let isTracking = TrackerManager.shared.isTracking(sourceId: manga.sourceId, mangaId: manga.id)
-            trackerButton.tintColor = isTracking ? .white : tintColor
-            trackerButton.backgroundColor = isTracking ? tintColor : .secondarySystemFill
-        }
-        trackerButton.isHidden = !TrackerManager.shared.hasAvailableTrackers
+//        if let manga = manga {
+//            let isTracking = TrackerManager.shared.isTracking(sourceId: manga.sourceId, mangaId: manga.id)
+//            trackerButton.tintColor = isTracking ? .white : tintColor
+//            trackerButton.backgroundColor = isTracking ? tintColor : .secondarySystemFill
+//        }
+//        trackerButton.isHidden = !TrackerManager.shared.hasAvailableTrackers
     }
 
     func updateReadButtonTitle(

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct MangaUpdatesView: View {
-
+    
+    
     struct MangaUpdateInfo: Identifiable {
         let id: String
         let date: Date

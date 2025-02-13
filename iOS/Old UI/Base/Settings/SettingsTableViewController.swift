@@ -9,6 +9,7 @@ import UIKit
 import SafariServices
 import LocalAuthentication
 import AuthenticationServices
+import SwiftUI
 
 class SettingsTableViewController: UITableViewController {
 
@@ -43,17 +44,31 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = NSLocalizedString("SETTINGS", comment: "")
-        navigationController?.navigationBar.prefersLargeTitles = true
-
+        self.setStatusBarBackgroundColor()
+        
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0
         }
-
+        
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+ 
     }
+ 
 }
 
+extension SettingsTableViewController{
+    func setStatusBarBackgroundColor(){
+        navigationController?.navigationBar.backgroundColor  = .systemGreen
+        let tabBarAppearance = UINavigationBarAppearance()
+        tabBarAppearance.configureWithOpaqueBackground()
+        tabBarAppearance.backgroundColor = .systemGreen
+        tabBarAppearance.backgroundEffect = nil
+//
+        navigationController?.navigationBar.standardAppearance = tabBarAppearance
+ 
+ 
+    }
+}
 // MARK: - Table View Data Source
 extension SettingsTableViewController {
 

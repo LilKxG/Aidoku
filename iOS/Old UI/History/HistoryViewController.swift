@@ -78,7 +78,7 @@ class HistoryViewController: UIViewController {
 
         title = NSLocalizedString("HISTORY", comment: "")
         view.backgroundColor = .systemBackground
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.hidesSearchBarWhenScrolling = false
 
         let searchController = UISearchController(searchResultsController: nil)
@@ -187,6 +187,7 @@ class HistoryViewController: UIViewController {
                 self?.locked = UserDefaults.standard.bool(forKey: "History.lockHistoryTab")
             }
         })
+        self.setStatusBarBackgroundColor()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -675,5 +676,22 @@ extension HistoryViewController {
         tableView.cellForRow(at: hoveredIndexPath)?.setHighlighted(false, animated: true)
         hovering = false
         self.hoveredIndexPath = nil
+    }
+}
+
+extension HistoryViewController {
+    func setStatusBarBackgroundColor(){
+        //静态时状态栏
+            let statusBarview=UIView()
+            statusBarview.backgroundColor = .systemGreen
+            view.addSubview(statusBarview)
+            statusBarview.translatesAutoresizingMaskIntoConstraints = false
+            statusBarview.topAnchor.constraint(equalTo: view.topAnchor).isActive=true
+            statusBarview.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive=true
+            statusBarview.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive=true
+    //        statusBarview.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive=true
+            statusBarview.heightAnchor.constraint(equalToConstant: 90).isActive = true
+            //滑动时状态栏
+            navigationController?.navigationBar.barTintColor  = .systemGreen
     }
 }

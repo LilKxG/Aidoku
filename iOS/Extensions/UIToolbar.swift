@@ -23,7 +23,7 @@ extension UIToolbar {
         }
     }
 
-   func fitContentViewToToolbar() {
+func fitContentViewToToolbar() {
         guard let stackView = stackView, let contentView = contentView else { return }
         stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true

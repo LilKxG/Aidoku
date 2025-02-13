@@ -1,7 +1,7 @@
 //
 //  SourceViewController.swift
 //  Aidoku (iOS)
-//
+//  来源 详情
 //  Created by Skitty on 1/23/22.
 //
 
@@ -132,14 +132,16 @@ class SourceViewController: MangaCollectionViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
         // fix tab bar background turning clear when presenting
-        if #available(iOS 15.0, *) {
-            storedTabBarAppearance = navigationController?.tabBarController?.tabBar.scrollEdgeAppearance
-            let tabBarAppearance = UITabBarAppearance()
-            tabBarAppearance.configureWithOpaqueBackground()
-            navigationController?.tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
-        }
+//        if #available(iOS 15.0, *) {
+//            storedTabBarAppearance = navigationController?.tabBarController?.tabBar.scrollEdgeAppearance
+//            let tabBarAppearance = UITabBarAppearance()
+//            tabBarAppearance.backgroundColor = .systemGreen
+//            //tabBarAppearance.configureWithOpaqueBackground()
+//            navigationController?.tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
+//        }
+     
+
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -151,9 +153,9 @@ class SourceViewController: MangaCollectionViewController {
         }
 
         // reset tab bar background fix
-        if #available(iOS 15.0, *) {
-            navigationController?.tabBarController?.tabBar.scrollEdgeAppearance = storedTabBarAppearance
-        }
+//        if #available(iOS 15.0, *) {
+//            navigationController?.tabBarController?.tabBar.scrollEdgeAppearance = storedTabBarAppearance
+//        }
     }
 
     override func makeCellRegistration() -> CellRegistration {
@@ -200,13 +202,14 @@ class SourceViewController: MangaCollectionViewController {
 
     func updateNavbarItems(showFilterButton: Bool = true, listingsHidden: Bool = false) {
         var items = [
-            UIBarButtonItem(
-                image: UIImage(systemName: "ellipsis"),
-                style: .plain,
-                target: self,
-                action: #selector(openInfoPage)
-            )
-        ]
+            UIBarButtonItem
+//            UIBarButtonItem(
+//                image: UIImage(systemName: "ellipsis"),
+//                style: .plain,
+//                target: self,
+//                action: #selector(openInfoPage)
+//            )
+        ]()
         // show filter button in navbar if header is hidden
         if showFilterButton && source.filterable && (hidesListings || listingsHidden) {
             let filterImage: UIImage?
@@ -225,16 +228,16 @@ class SourceViewController: MangaCollectionViewController {
             )
         }
         // show safari button if source has a url to open
-        if source.manifest.info.url != nil || !(source.manifest.info.urls?.isEmpty ?? true) {
-            items.append(
-                UIBarButtonItem(
-                    image: UIImage(systemName: "safari"),
-                    style: .plain,
-                    target: self,
-                    action: #selector(openSourceWebView)
-                )
-            )
-        }
+//        if source.manifest.info.url != nil || !(source.manifest.info.urls?.isEmpty ?? true) {
+//            items.append(
+//                UIBarButtonItem(
+//                    image: UIImage(systemName: "safari"),
+//                    style: .plain,
+//                    target: self,
+//                    action: #selector(openSourceWebView)
+//                )
+//            )
+//        }
         let finalItems = items // switch to constant
         Task { @MainActor in
             navigationItem.rightBarButtonItems = finalItems

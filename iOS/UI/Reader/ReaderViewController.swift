@@ -3,6 +3,7 @@
 //  Aidoku (iOS)
 //
 //  Created by Skitty on 8/14/22.
+// 阅读器页面
 //
 
 import UIKit
@@ -28,18 +29,18 @@ class ReaderViewController: BaseObservingViewController {
     private lazy var toolbarView = ReaderToolbarView()
     private var toolbarViewWidthConstraint: NSLayoutConstraint?
 
-    private lazy var barToggleTapGesture: UITapGestureRecognizer = {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(toggleBarVisibility))
-        tap.numberOfTapsRequired = 1
-
-        let doubleTap = UITapGestureRecognizer(target: self, action: nil)
-        doubleTap.numberOfTapsRequired = 2
-        view.addGestureRecognizer(doubleTap)
-
-        tap.require(toFail: doubleTap)
-
-        return tap
-    }()
+//    private lazy var barToggleTapGesture: UITapGestureRecognizer = {
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(toggleBarVisibility))
+//        tap.numberOfTapsRequired = 1
+//
+//        let doubleTap = UITapGestureRecognizer(target: self, action: nil)
+//        doubleTap.numberOfTapsRequired = 2
+//        view.addGestureRecognizer(doubleTap)
+//
+//        tap.require(toFail: doubleTap)
+//
+//        return tap
+//    }()
 
     var statusBarHidden = false
 
@@ -98,11 +99,14 @@ class ReaderViewController: BaseObservingViewController {
         ]
         navigationItem.rightBarButtonItems?.first?.isEnabled = false
 
+     
         // fix navbar being clear
         let navigationBarAppearance = UINavigationBarAppearance()
         let toolbarAppearance = UIToolbarAppearance()
-        navigationBarAppearance.configureWithDefaultBackground()
-        toolbarAppearance.configureWithDefaultBackground()
+//        navigationBarAppearance.configureWithDefaultBackground()
+        toolbarAppearance.backgroundColor = .systemGreen
+        navigationBarAppearance.backgroundColor = .systemGreen
+//        toolbarAppearance.configureWithDefaultBackground()
         navigationController?.navigationBar.standardAppearance = navigationBarAppearance
         navigationController?.navigationBar.compactAppearance = navigationBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance
@@ -122,9 +126,18 @@ class ReaderViewController: BaseObservingViewController {
         toolbarButtonItemView.customView?.transform = CGAffineTransform(translationX: 0, y: -10)
         toolbarButtonItemView.customView?.heightAnchor.constraint(equalToConstant: 40).isActive = true
         toolbarViewWidthConstraint = toolbarButtonItemView.customView?.widthAnchor.constraint(equalToConstant: view.bounds.width)
-
+        
+ 
+ 
         toolbarItems = [toolbarButtonItemView]
+        
         navigationController?.isToolbarHidden = false
+  
+//        navigationController?.navigationBar.tintColor = .systemGreen
+        navigationController?.navigationBar.backgroundColor = .systemGreen
+        navigationController?.toolbar.backgroundColor = .systemGreen
+//        navigationController?.navigationBar.barTintColor = .systemGreen
+        
         navigationController?.toolbar.fitContentViewToToolbar()
 
         // loading indicator
@@ -134,7 +147,7 @@ class ReaderViewController: BaseObservingViewController {
         view.addSubview(activityIndicator)
 
         // bar toggle tap gesture
-        view.addGestureRecognizer(barToggleTapGesture)
+//        view.addGestureRecognizer(barToggleTapGesture)
 
         // set reader
         let readingModeKey = "Reader.readingMode.\(chapter.mangaId)"
@@ -272,6 +285,10 @@ class ReaderViewController: BaseObservingViewController {
     }
     @objc func sliderStopped(_ sender: ReaderSliderView) {
         reader?.sliderStopped(value: sender.currentValue)
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("打开了阅读器")
     }
 }
 
@@ -436,31 +453,40 @@ extension ReaderViewController: ReaderHoldingDelegate {
 // MARK: - Bar Visibility
 extension ReaderViewController {
 
-    @objc func toggleBarVisibility() {
-        guard let navigationController = navigationController else { return }
-        if navigationController.navigationBar.alpha > 0 {
-            hideBars()
-        } else {
-            showBars()
-        }
-    }
+//    @objc func toggleBarVisibility() {
+//        guard let navigationController = navigationController else { return }
+//        if navigationController.navigationBar.alpha > 0 {
+//            hideBars()
+//        } else {
+//            showBars()
+//        }
+//    }
 
+    //显示操作栏
     func showBars() {
         guard let navigationController = navigationController else { return }
         UIView.animate(withDuration: CATransaction.animationDuration()) {
             self.statusBarHidden = false
             self.setNeedsStatusBarAppearanceUpdate()
             self.setNeedsUpdateOfHomeIndicatorAutoHidden()
+        
         } completion: { _ in
             if navigationController.toolbar.isHidden {
-                navigationController.toolbar.alpha = 0
+                navigationController.toolbar.alpha = 1
                 navigationController.toolbar.isHidden = false
+ 
             }
             UIView.animate(withDuration: CATransaction.animationDuration()) {
+            
                 navigationController.navigationBar.alpha = 1
                 navigationController.toolbar.alpha = 1
-                self.view.backgroundColor = .systemBackground
-            }
+                
+                self.setStatusBarBackgroundColor()
+                
+                self.view.backgroundColor = .systemBackground //阅读页面 背景
+                
+           
+             }
         }
     }
 
@@ -478,7 +504,7 @@ extension ReaderViewController {
                 case "system":
                     .systemBackground
                 case "white":
-                    .white
+                        .systemGreen
                 default:
                     .black
                 }

@@ -142,3 +142,26 @@ extension MangaCollectionViewController {
         )
     }
 }
+
+ 
+extension MangaCollectionViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setStatusBarBackgroundColor()
+    }
+    
+//    func setStatusBarBackgroundColor(){
+//        //静态时状态栏
+//            let statusBarview=UIView()
+//            statusBarview.backgroundColor = .systemGreen
+//            view.addSubview(statusBarview)
+//            statusBarview.translatesAutoresizingMaskIntoConstraints = false
+//            statusBarview.topAnchor.constraint(equalTo: view.topAnchor).isActive=true
+//            statusBarview.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive=true
+//            statusBarview.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive=true
+//    //        statusBarview.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive=true
+//            statusBarview.heightAnchor.constraint(equalToConstant: 90).isActive = true
+//            //滑动时状态栏
+//            navigationController?.navigationBar.barTintColor  = .systemGreen
+//    }
+}

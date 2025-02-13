@@ -3,6 +3,7 @@
 //  Aidoku (iOS)
 //
 //  Created by Skitty on 1/30/22.
+// 章节 详情页
 //
 
 import UIKit
@@ -76,21 +77,21 @@ class MangaViewController: BaseTableViewController {
         headerView.delegate = self
         headerView.translatesAutoresizingMaskIntoConstraints = false
 
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            splitScrollView.addSubview(headerView)
-
-            splitScrollView.refreshControl = refreshControl
-            splitScrollView.delaysContentTouches = false
-            splitScrollView.backgroundColor = .systemBackground
-            splitScrollView.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(splitScrollView)
-        } else {
+//        if UIDevice.current.userInterfaceIdiom == .pad {
+//            splitScrollView.addSubview(headerView)
+//
+//            splitScrollView.refreshControl = refreshControl
+//            splitScrollView.delaysContentTouches = false
+//            splitScrollView.backgroundColor = .systemBackground
+//            splitScrollView.translatesAutoresizingMaskIntoConstraints = false
+//            view.addSubview(splitScrollView)
+//        } else {
             headerView.sizeChangeListener = self
             tableView.refreshControl = refreshControl
             tableView.tableHeaderView = UIView()
             tableView.tableHeaderView!.translatesAutoresizingMaskIntoConstraints = false
             tableView.tableHeaderView!.addSubview(headerView)
-        }
+//        }
 
         DispatchQueue.main.async {
             self.updateNavbarButtons()
@@ -376,23 +377,25 @@ class MangaViewController: BaseTableViewController {
         headerView.scaleTitle()
 
         // fix tab bar background turning clear when presenting
-        if #available(iOS 15.0, *) {
-            storedTabBarAppearance = navigationController?.tabBarController?.tabBar.scrollEdgeAppearance
-            let tabBarAppearance = UITabBarAppearance()
-            tabBarAppearance.configureWithOpaqueBackground()
-            navigationController?.tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
-        }
+//        if #available(iOS 15.0, *) {
+//            storedTabBarAppearance = navigationController?.tabBarController?.tabBar.scrollEdgeAppearance
+//            let tabBarAppearance = UITabBarAppearance()
+//            tabBarAppearance.configureWithOpaqueBackground()
+//            navigationController?.tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
+//        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        print("进入章节详情页")
         // reset tab bar background fix
-        if #available(iOS 15.0, *) {
-            navigationController?.tabBarController?.tabBar.scrollEdgeAppearance = storedTabBarAppearance
-        }
+//        if #available(iOS 15.0, *) {
+//            navigationController?.tabBarController?.tabBar.scrollEdgeAppearance = storedTabBarAppearance
+//        }
     }
 
+
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
 
@@ -420,6 +423,7 @@ class MangaViewController: BaseTableViewController {
         setEditing(false, animated: true)
     }
 
+    //打开阅读页面
     func openReaderView(chapter: Chapter) {
         let readerController = ReaderViewController(
             chapter: chapter,
@@ -427,12 +431,10 @@ class MangaViewController: BaseTableViewController {
             defaultReadingMode: ReadingMode(rawValue: manga.viewer.rawValue)
         )
         let navigationController = ReaderNavigationController(rootViewController: readerController)
-        // bug: using fullScreen on macOS crashes for some reason
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            navigationController.modalPresentationStyle = .overFullScreen
-        } else {
-            navigationController.modalPresentationStyle = .fullScreen
-        }
+       
+//        navigationController.modalPresentationStyle = .overFullScreen
+        navigationController.modalPresentationStyle = .fullScreen
+
         present(navigationController, animated: true)
     }
 
@@ -674,34 +676,34 @@ extension MangaViewController {
                         )
                     })
                 }
-                actions.append(UIAction(
-                    title: NSLocalizedString("MIGRATE", comment: ""),
-                    image: UIImage(systemName: "arrow.left.arrow.right")
-                ) { [weak self] _ in
-                    self?.migrateManga()
-                })
+//                actions.append(UIAction(
+//                    title: NSLocalizedString("MIGRATE", comment: ""),
+//                    image: UIImage(systemName: "arrow.left.arrow.right")
+//                ) { [weak self] _ in
+//                    self?.migrateManga()
+//                })
             }
         }
 
         // add share button if manga has a url
-        if let url = manga.url {
-            actions.append(UIAction(
-                title: NSLocalizedString("SHARE", comment: ""),
-                image: UIImage(systemName: "square.and.arrow.up")
-            ) { [weak self] _ in
-                guard let self = self else { return }
-
-                let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
-                activityViewController.popoverPresentationController?.sourceView = self.view
-
-                if let navigationController = self.navigationController {
-                    let x = navigationController.navigationBar.frame.midX * 0.95
-                    activityViewController.popoverPresentationController?.sourceRect = navigationController.navigationBar.frame.offsetBy(dx: x, dy: 0)
-                }
-
-                self.present(activityViewController, animated: true)
-            })
-        }
+//        if let url = manga.url {
+//            actions.append(UIAction(
+//                title: NSLocalizedString("SHARE", comment: ""),
+//                image: UIImage(systemName: "square.and.arrow.up")
+//            ) { [weak self] _ in
+//                guard let self = self else { return }
+//
+//                let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+//                activityViewController.popoverPresentationController?.sourceView = self.view
+//
+//                if let navigationController = self.navigationController {
+//                    let x = navigationController.navigationBar.frame.midX * 0.95
+//                    activityViewController.popoverPresentationController?.sourceRect = navigationController.navigationBar.frame.offsetBy(dx: x, dy: 0)
+//                }
+//
+//                self.present(activityViewController, animated: true)
+//            })
+//        }
 
         menus.append(UIMenu(title: "", options: .displayInline, children: actions))
 
@@ -1018,21 +1020,21 @@ extension MangaViewController {
             }
 
             // sharing action
-            if let url = URL(string: chapter.url ?? "") {
-                actions.append(UIMenu(title: "", options: .displayInline, children: [
-                    UIAction(title: NSLocalizedString("SHARE", comment: ""),
-                             image: UIImage(systemName: "square.and.arrow.up")
-                    ) { _ in
-                        let activityViewController = UIActivityViewController(
-                            activityItems: [url],
-                            applicationActivities: nil
-                        )
-                        activityViewController.popoverPresentationController?.sourceView = self.view
-
-                        self.present(activityViewController, animated: true)
-                    }
-                ]))
-            }
+//            if let url = URL(string: chapter.url ?? "") {
+//                actions.append(UIMenu(title: "", options: .displayInline, children: [
+//                    UIAction(title: NSLocalizedString("SHARE", comment: ""),
+//                             image: UIImage(systemName: "square.and.arrow.up")
+//                    ) { _ in
+//                        let activityViewController = UIActivityViewController(
+//                            activityItems: [url],
+//                            applicationActivities: nil
+//                        )
+//                        activityViewController.popoverPresentationController?.sourceView = self.view
+//
+//                        self.present(activityViewController, animated: true)
+//                    }
+//                ]))
+//            }
             return UIMenu(title: "", children: actions)
         }
     }
@@ -1206,32 +1208,32 @@ extension MangaViewController: MangaDetailHeaderViewDelegate {
 
     // open tracker menu
     func trackerPressed() {
-        let vc = TrackerModalViewController(manga: manga)
-        vc.view.tintColor = view.tintColor
-        vc.modalPresentationStyle = .overFullScreen
-        present(vc, animated: false)
+//        let vc = TrackerModalViewController(manga: manga)
+//        vc.view.tintColor = view.tintColor
+//        vc.modalPresentationStyle = .overFullScreen
+//        present(vc, animated: false)
     }
 
     // open safari web view
     func safariPressed() {
-        guard
-            let url = manga.url,
-            url.scheme == "https" || url.scheme == "http"
-        else { return }
-        present(SFSafariViewController(url: url), animated: true)
+//        guard
+//            let url = manga.url,
+//            url.scheme == "https" || url.scheme == "http"
+//        else { return }
+//        present(SFSafariViewController(url: url), animated: true)
     }
 
-    // copy manga link when holding down the web view button
+//    // copy manga link when holding down the web view button
     func safariHeld() {
-        guard let url = manga.url else { return }
-        UIPasteboard.general.string = url.absoluteString
-        let alert = UIAlertController(
-            title: NSLocalizedString("LINK_COPIED", comment: ""),
-            message: NSLocalizedString("LINK_COPIED_TEXT", comment: ""),
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel))
-        present(alert, animated: true)
+//        guard let url = manga.url else { return }
+//        UIPasteboard.general.string = url.absoluteString
+//        let alert = UIAlertController(
+//            title: NSLocalizedString("LINK_COPIED", comment: ""),
+//            message: NSLocalizedString("LINK_COPIED_TEXT", comment: ""),
+//            preferredStyle: .alert
+//        )
+//        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel))
+//        present(alert, animated: true)
     }
 
     // open reader to next chapter
@@ -1242,9 +1244,9 @@ extension MangaViewController: MangaDetailHeaderViewDelegate {
 
     // open full manga cover view
     func coverPressed() {
-        let navigationController = UINavigationController(rootViewController: MangaCoverViewController(manga: manga))
-        navigationController.modalPresentationStyle = .fullScreen
-        present(navigationController, animated: true)
+//        let navigationController = UINavigationController(rootViewController: MangaCoverViewController(manga: manga))
+//        navigationController.modalPresentationStyle = .fullScreen
+//        present(navigationController, animated: true)
     }
 }
 

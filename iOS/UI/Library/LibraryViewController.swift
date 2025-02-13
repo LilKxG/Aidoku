@@ -55,7 +55,8 @@ class LibraryViewController: MangaCollectionViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+   
+        
         // fix refresh control snapping height
         refreshControl.didMoveToSuperview()
 
@@ -77,14 +78,16 @@ class LibraryViewController: MangaCollectionViewController {
         Task.detached {
             await DownloadManager.shared.loadQueueState()
         }
+        
+        self.setStatusBarBackgroundColor()
     }
-
+    
     override func configure() {
         super.configure()
-
+ 
         title = NSLocalizedString("LIBRARY", comment: "")
 
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.hidesSearchBarWhenScrolling = false
 
         // search controller
@@ -541,6 +544,9 @@ class LibraryViewController: MangaCollectionViewController {
         let mangaUpdatesViewController = UIHostingController(rootView: MangaUpdatesView())
         // configure navigation item before displaying to fix animation
         mangaUpdatesViewController.navigationItem.largeTitleDisplayMode = .never
+
+        mangaUpdatesViewController.setStatusBarBackgroundColor2()
+        
         mangaUpdatesViewController.navigationItem.title = NSLocalizedString("MANGA_UPDATES", comment: "")
         navigationController?.pushViewController(mangaUpdatesViewController, animated: true)
     }
@@ -976,24 +982,24 @@ extension LibraryViewController {
             ? .disabled
             : UIMenuElement.Attributes()
 
-            if let url = manga.url {
-                actions.append(UIMenu(identifier: .share, options: .displayInline, children: [
-                    UIAction(
-                        title: NSLocalizedString("SHARE", comment: ""),
-                        image: UIImage(systemName: "square.and.arrow.up"),
-                        attributes: singleAttributes
-                    ) { _ in
-                        let activityViewController = UIActivityViewController(
-                            activityItems: [url],
-                            applicationActivities: nil
-                        )
-                        activityViewController.popoverPresentationController?.sourceView = self.view
-                        activityViewController.popoverPresentationController?.sourceRect = collectionView.cellForItem(at: indexPath)?.frame ?? .zero
-
-                        self.present(activityViewController, animated: true)
-                    }
-                ]))
-            }
+//            if let url = manga.url {
+//                actions.append(UIMenu(identifier: .share, options: .displayInline, children: [
+//                    UIAction(
+//                        title: NSLocalizedString("SHARE", comment: ""),
+//                        image: UIImage(systemName: "square.and.arrow.up"),
+//                        attributes: singleAttributes
+//                    ) { _ in
+//                        let activityViewController = UIActivityViewController(
+//                            activityItems: [url],
+//                            applicationActivities: nil
+//                        )
+//                        activityViewController.popoverPresentationController?.sourceView = self.view
+//                        activityViewController.popoverPresentationController?.sourceRect = collectionView.cellForItem(at: indexPath)?.frame ?? .zero
+//
+//                        self.present(activityViewController, animated: true)
+//                    }
+//                ]))
+//            }
 
             if self.opensReaderView {
                 actions.append(UIAction(
@@ -1019,15 +1025,15 @@ extension LibraryViewController {
                 })
             }
 
-            actions.append(UIAction(
-                title: NSLocalizedString("MIGRATE", comment: ""),
-                image: UIImage(systemName: "arrow.left.arrow.right"),
-                attributes: singleAttributes
-            ) { [weak self] _ in
-                let manga = manga.toManga()
-                let migrateView = MigrateMangaView(manga: [manga])
-                self?.present(UIHostingController(rootView: SwiftUINavigationView(rootView: AnyView(migrateView))), animated: true)
-            })
+//            actions.append(UIAction(
+//                title: NSLocalizedString("MIGRATE", comment: ""),
+//                image: UIImage(systemName: "arrow.left.arrow.right"),
+//                attributes: singleAttributes
+//            ) { [weak self] _ in
+//                let manga = manga.toManga()
+//                let migrateView = MigrateMangaView(manga: [manga])
+//                self?.present(UIHostingController(rootView: SwiftUINavigationView(rootView: AnyView(migrateView))), animated: true)
+//            })
 
             var bottomMenuChildren: [UIMenuElement] = []
 
@@ -1161,3 +1167,20 @@ extension LibraryViewController: UISearchResultsUpdating {
         }
     }
 }
+
+//extension LibraryViewController {
+//    func setStatusBarBackgroundColor(){
+//        //静态时状态栏
+//            let statusBarview=UIView()
+//            statusBarview.backgroundColor = .systemGreen
+//            view.addSubview(statusBarview)
+//            statusBarview.translatesAutoresizingMaskIntoConstraints = false
+//            statusBarview.topAnchor.constraint(equalTo: view.topAnchor).isActive=true
+//            statusBarview.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive=true
+//            statusBarview.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive=true
+//    //        statusBarview.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive=true
+//            statusBarview.heightAnchor.constraint(equalToConstant: 90).isActive = true
+//            //滑动时状态栏
+//            navigationController?.navigationBar.barTintColor  = .systemGreen
+//    }
+//}

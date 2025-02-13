@@ -10,6 +10,11 @@
 		0C807DDD27D47C2D0042EE7B /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C807DDC27D47C2D0042EE7B /* CircularProgressView.swift */; };
 		37F3E66B2850F53200A944E0 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F3E66A2850F53200A944E0 /* CGRect.swift */; };
 		37F3E66D2850F62100A944E0 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F3E66C2850F62100A944E0 /* Collection.swift */; };
+		380F65EB2D3A26FD000F7040 /* AsyncDisplayKit in Frameworks */ = {isa = PBXBuildFile; productRef = 380F65EA2D3A26FD000F7040 /* AsyncDisplayKit */; };
+		380F65EE2D3A2989000F7040 /* WasmInterpreter in Frameworks */ = {isa = PBXBuildFile; productRef = 380F65ED2D3A2989000F7040 /* WasmInterpreter */; };
+		3843FA4A2D2E62E000647D66 /* KYPhotoLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 3843FA492D2E62E000647D66 /* KYPhotoLibrary */; };
+		3843FA4D2D2E630000647D66 /* MijickCamera in Frameworks */ = {isa = PBXBuildFile; productRef = 3843FA4C2D2E630000647D66 /* MijickCamera */; };
+		3843FA502D2E631C00647D66 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3843FA4F2D2E631C00647D66 /* SnapKit */; };
 		48177B8E2B75C40400AD41B4 /* MangaUpdatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48177B8D2B75C40400AD41B4 /* MangaUpdatesView.swift */; };
 		48177B902B75C63700AD41B4 /* CoreDataManager+MangaUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48177B8F2B75C63700AD41B4 /* CoreDataManager+MangaUpdates.swift */; };
 		48177B922B75C67300AD41B4 /* MangaUpdateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48177B912B75C67300AD41B4 /* MangaUpdateObject.swift */; };
@@ -176,14 +181,12 @@
 		FB58C6B22999B44D00A6F49F /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB58C6B12999B44D00A6F49F /* WebViewViewController.swift */; };
 		FB58C6B32999B4AA00A6F49F /* WasmNetWebViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB58C6AF2999B44100A6F49F /* WasmNetWebViewHandler.swift */; };
 		FB58C6B42999B5BC00A6F49F /* CoreDataManager+Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB05F868296499DE00D1EA2D /* CoreDataManager+Source.swift */; };
-		FB6340B1278E61600072A2A2 /* WasmInterpreter in Frameworks */ = {isa = PBXBuildFile; productRef = FB6340B0278E61600072A2A2 /* WasmInterpreter */; };
 		FB6340B3278F898E0072A2A2 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6340B2278F898E0072A2A2 /* Filter.swift */; };
 		FB6340B4278F89930072A2A2 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6340B2278F898E0072A2A2 /* Filter.swift */; };
 		FB6340B62791DA130072A2A2 /* KVCObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6340B52791DA130072A2A2 /* KVCObject.swift */; };
 		FB6340B72791DA130072A2A2 /* KVCObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6340B52791DA130072A2A2 /* KVCObject.swift */; };
 		FB6340BB2792202B0072A2A2 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6340BA2792202B0072A2A2 /* Listing.swift */; };
 		FB6340BC2792202B0072A2A2 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6340BA2792202B0072A2A2 /* Listing.swift */; };
-		FB6340C7279246CF0072A2A2 /* WasmInterpreter in Frameworks */ = {isa = PBXBuildFile; productRef = FB6340C6279246CF0072A2A2 /* WasmInterpreter */; };
 		FB6340C9279246D50072A2A2 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = FB6340C8279246D50072A2A2 /* ZIPFoundation */; };
 		FB6340CE27947BCA0072A2A2 /* ExternalSourceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6340CD27947BCA0072A2A2 /* ExternalSourceInfo.swift */; };
 		FB6340CF27947BCA0072A2A2 /* ExternalSourceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6340CD27947BCA0072A2A2 /* ExternalSourceInfo.swift */; };
@@ -289,7 +292,6 @@
 		FBE40E2F288EDDB700CCA4DC /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE40E2E288EDDB700CCA4DC /* LibraryViewModel.swift */; };
 		FBE53F0429CB58BB00899601 /* VerticalContentOffsetPreservingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4C09D929B03DE1009E0761 /* VerticalContentOffsetPreservingLayout.swift */; };
 		FBE53F0629CB723D00899601 /* ReaderWebtoonTransitionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE53F0529CB723D00899601 /* ReaderWebtoonTransitionNode.swift */; };
-		FBE53F0C29CC015E00899601 /* AsyncDisplayKit in Frameworks */ = {isa = PBXBuildFile; productRef = FBE53F0B29CC015E00899601 /* AsyncDisplayKit */; };
 		FBE53F0E29CCA78000899601 /* HeightQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE53F0D29CCA78000899601 /* HeightQueryable.swift */; };
 		FBE53F1029CCFC1A00899601 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE53F0F29CCFC1A00899601 /* SearchBar.swift */; };
 		FBE53F1229CDDCD300899601 /* BaseObservingCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE53F1129CDDCD300899601 /* BaseObservingCellNode.swift */; };
@@ -616,9 +618,12 @@
 			files = (
 				FB17114B296770CC00AD523D /* NukeUI in Frameworks */,
 				FB4EEBE027A4F5C1005081A3 /* CloudKit.framework in Frameworks */,
-				FB6340B1278E61600072A2A2 /* WasmInterpreter in Frameworks */,
-				FBE53F0C29CC015E00899601 /* AsyncDisplayKit in Frameworks */,
+				380F65EE2D3A2989000F7040 /* WasmInterpreter in Frameworks */,
+				3843FA4D2D2E630000647D66 /* MijickCamera in Frameworks */,
+				380F65EB2D3A26FD000F7040 /* AsyncDisplayKit in Frameworks */,
 				FB7B7ED8278CE949001E6EAF /* ZIPFoundation in Frameworks */,
+				3843FA502D2E631C00647D66 /* SnapKit in Frameworks */,
+				3843FA4A2D2E62E000647D66 /* KYPhotoLibrary in Frameworks */,
 				FB31AD0F27AE18DA00D50410 /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -627,7 +632,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB6340C7279246CF0072A2A2 /* WasmInterpreter in Frameworks */,
 				FB6340C9279246D50072A2A2 /* ZIPFoundation in Frameworks */,
 				FBED233327C091D70095D0C0 /* SwiftSoup in Frameworks */,
 			);
@@ -1403,10 +1407,13 @@
 			name = "Aidoku (iOS)";
 			packageProductDependencies = (
 				FB7B7ED7278CE949001E6EAF /* ZIPFoundation */,
-				FB6340B0278E61600072A2A2 /* WasmInterpreter */,
 				FB31AD0E27AE18DA00D50410 /* SwiftSoup */,
 				FB17114A296770CC00AD523D /* NukeUI */,
-				FBE53F0B29CC015E00899601 /* AsyncDisplayKit */,
+				3843FA492D2E62E000647D66 /* KYPhotoLibrary */,
+				3843FA4C2D2E630000647D66 /* MijickCamera */,
+				3843FA4F2D2E631C00647D66 /* SnapKit */,
+				380F65EA2D3A26FD000F7040 /* AsyncDisplayKit */,
+				380F65ED2D3A2989000F7040 /* WasmInterpreter */,
 			);
 			productName = "Aidoku (iOS)";
 			productReference = FB1B4835277CE1920056D02C /* Aidoku.app */;
@@ -1426,7 +1433,6 @@
 			);
 			name = "Aidoku (macOS)";
 			packageProductDependencies = (
-				FB6340C6279246CF0072A2A2 /* WasmInterpreter */,
 				FB6340C8279246D50072A2A2 /* ZIPFoundation */,
 				FBED233227C091D70095D0C0 /* SwiftSoup */,
 			);
@@ -1505,10 +1511,13 @@
 			mainGroup = FB1B4825277CE18D0056D02C;
 			packageReferences = (
 				FB7B7ED6278CE949001E6EAF /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
-				FB6340AF278E61600072A2A2 /* XCRemoteSwiftPackageReference "wasm-interpreter-apple" */,
 				FB31AD0D27AE18DA00D50410 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 				FB171149296770CC00AD523D /* XCRemoteSwiftPackageReference "Nuke" */,
-				FBE53F0A29CC015E00899601 /* XCRemoteSwiftPackageReference "Texture" */,
+				3843FA482D2E62E000647D66 /* XCRemoteSwiftPackageReference "KYPhotoLibrary" */,
+				3843FA4B2D2E630000647D66 /* XCRemoteSwiftPackageReference "Camera" */,
+				3843FA4E2D2E631C00647D66 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				380F65E92D3A26FD000F7040 /* XCRemoteSwiftPackageReference "Texture" */,
+				380F65EC2D3A2989000F7040 /* XCRemoteSwiftPackageReference "wasm-interpreter-apple" */,
 			);
 			productRefGroup = FB1B4836277CE1920056D02C /* Products */;
 			projectDirPath = "";
@@ -2077,11 +2086,11 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = RUJJBSYLD9;
+				DEVELOPMENT_TEAM = 83JL2YJ9YZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME)";
+				INFOPLIST_KEY_CFBundleDisplayName = Aidoku;
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = NO;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Aidoku needs FaceID permissions for user-defined settings";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Aidoku needs permission to save pages in your photo library";
@@ -2096,7 +2105,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.6.10;
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.skitty.Aidoku;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mijick.CameraView;
 				PRODUCT_NAME = Aidoku;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -2117,11 +2126,11 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = RUJJBSYLD9;
+				DEVELOPMENT_TEAM = 83JL2YJ9YZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME)";
+				INFOPLIST_KEY_CFBundleDisplayName = Aidoku;
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = NO;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Aidoku needs FaceID permissions for user-defined settings";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Aidoku needs permission to save pages in your photo library";
@@ -2136,7 +2145,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.6.10;
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.skitty.Aidoku;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mijick.CameraView;
 				PRODUCT_NAME = Aidoku;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -2243,6 +2252,46 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		380F65E92D3A26FD000F7040 /* XCRemoteSwiftPackageReference "Texture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Skittyblock/Texture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.1;
+			};
+		};
+		380F65EC2D3A2989000F7040 /* XCRemoteSwiftPackageReference "wasm-interpreter-apple" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Skittyblock/wasm-interpreter-apple.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		3843FA482D2E62E000647D66 /* XCRemoteSwiftPackageReference "KYPhotoLibrary" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kjuly/KYPhotoLibrary";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		3843FA4B2D2E630000647D66 /* XCRemoteSwiftPackageReference "Camera" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Mijick/Camera.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.1;
+			};
+		};
+		3843FA4E2D2E631C00647D66 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 		FB171149296770CC00AD523D /* XCRemoteSwiftPackageReference "Nuke" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kean/Nuke";
@@ -2259,14 +2308,6 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		FB6340AF278E61600072A2A2 /* XCRemoteSwiftPackageReference "wasm-interpreter-apple" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Skittyblock/wasm-interpreter-apple.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		FB7B7ED6278CE949001E6EAF /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
@@ -2275,17 +2316,34 @@
 				minimumVersion = 0.9.9;
 			};
 		};
-		FBE53F0A29CC015E00899601 /* XCRemoteSwiftPackageReference "Texture" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Skittyblock/Texture.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.1.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		380F65EA2D3A26FD000F7040 /* AsyncDisplayKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 380F65E92D3A26FD000F7040 /* XCRemoteSwiftPackageReference "Texture" */;
+			productName = AsyncDisplayKit;
+		};
+		380F65ED2D3A2989000F7040 /* WasmInterpreter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 380F65EC2D3A2989000F7040 /* XCRemoteSwiftPackageReference "wasm-interpreter-apple" */;
+			productName = WasmInterpreter;
+		};
+		3843FA492D2E62E000647D66 /* KYPhotoLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3843FA482D2E62E000647D66 /* XCRemoteSwiftPackageReference "KYPhotoLibrary" */;
+			productName = KYPhotoLibrary;
+		};
+		3843FA4C2D2E630000647D66 /* MijickCamera */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3843FA4B2D2E630000647D66 /* XCRemoteSwiftPackageReference "Camera" */;
+			productName = MijickCamera;
+		};
+		3843FA4F2D2E631C00647D66 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3843FA4E2D2E631C00647D66 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		FB17114A296770CC00AD523D /* NukeUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FB171149296770CC00AD523D /* XCRemoteSwiftPackageReference "Nuke" */;
@@ -2296,16 +2354,6 @@
 			package = FB31AD0D27AE18DA00D50410 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
 			productName = SwiftSoup;
 		};
-		FB6340B0278E61600072A2A2 /* WasmInterpreter */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FB6340AF278E61600072A2A2 /* XCRemoteSwiftPackageReference "wasm-interpreter-apple" */;
-			productName = WasmInterpreter;
-		};
-		FB6340C6279246CF0072A2A2 /* WasmInterpreter */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FB6340AF278E61600072A2A2 /* XCRemoteSwiftPackageReference "wasm-interpreter-apple" */;
-			productName = WasmInterpreter;
-		};
 		FB6340C8279246D50072A2A2 /* ZIPFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FB7B7ED6278CE949001E6EAF /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
@@ -2315,11 +2363,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FB7B7ED6278CE949001E6EAF /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
 			productName = ZIPFoundation;
-		};
-		FBE53F0B29CC015E00899601 /* AsyncDisplayKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FBE53F0A29CC015E00899601 /* XCRemoteSwiftPackageReference "Texture" */;
-			productName = AsyncDisplayKit;
 		};
 		FBED233227C091D70095D0C0 /* SwiftSoup */ = {
 			isa = XCSwiftPackageProductDependency;

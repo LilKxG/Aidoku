@@ -9,11 +9,11 @@ import UIKit
 
 class ReaderNavigationController: UINavigationController {
 
-    override var childForStatusBarHidden: UIViewController? {
-        topViewController
-    }
+//    override var childForStatusBarHidden: UIViewController? {
+//        topViewController
+//    }
 
-    override var childForStatusBarStyle: UIViewController? {
-        topViewController
-    }
+//    override var childForStatusBarStyle: UIViewController? {
+//        topViewController
+//    }
 }

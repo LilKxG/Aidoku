@@ -17,15 +17,16 @@ class SettingsViewController: SettingsTableViewController {
 
     // swiftlint:disable:next function_body_length
     init() {
+        
         let categories = CoreDataManager.shared.getCategoryTitles()
         super.init(items: [
-            // MARK: About
-            SettingItem(type: "group", title: NSLocalizedString("ABOUT", comment: ""), items: [
-                SettingItem(type: "page", key: "About.about", title: NSLocalizedString("ABOUT", comment: "")),
-                SettingItem(type: "link", title: NSLocalizedString("GITHUB_REPO", comment: ""), url: "https://github.com/Aidoku/Aidoku"),
-                SettingItem(type: "link", title: NSLocalizedString("DISCORD_SERVER", comment: ""), url: "https://discord.gg/9U8cC5Zk3s", external: true),
-                SettingItem(type: "link", title: NSLocalizedString("SUPPORT_VIA_KOFI", comment: ""), url: "https://ko-fi.com/skittyblock", external: true)
-            ]),
+//            // MARK: About
+//            SettingItem(type: "group", title: NSLocalizedString("ABOUT", comment: ""), items: [
+//                SettingItem(type: "page", key: "About.about", title: NSLocalizedString("ABOUT", comment: "")),
+//                SettingItem(type: "link", title: NSLocalizedString("GITHUB_REPO", comment: ""), url: "https://github.com/Aidoku/Aidoku"),
+//                SettingItem(type: "link", title: NSLocalizedString("DISCORD_SERVER", comment: ""), url: "https://discord.gg/9U8cC5Zk3s", external: true),
+//                SettingItem(type: "link", title: NSLocalizedString("SUPPORT_VIA_KOFI", comment: ""), url: "https://ko-fi.com/skittyblock", external: true)
+//            ]),
             // MARK: General
             SettingItem(
                 type: "group",
@@ -37,12 +38,12 @@ class SettingsViewController: SettingsTableViewController {
                         title: NSLocalizedString("INCOGNITO_MODE", comment: "")
 //                        subtitle: NSLocalizedString("INCOGNITO_MODE_TEXT", comment: "")
                     ),
-                    SettingItem(
-                        type: "switch",
-                        key: "General.icloudSync",
-                        title: NSLocalizedString("ICLOUD_SYNC", comment: ""),
-                        requiresFalse: "isSideloaded"
-                    ),
+//                    SettingItem(
+//                        type: "switch",
+//                        key: "General.icloudSync",
+//                        title: NSLocalizedString("ICLOUD_SYNC", comment: ""),
+//                        requiresFalse: "isSideloaded"
+//                    ),
                     SettingItem(
                         type: "segment",
                         key: "General.appearance",
@@ -265,32 +266,32 @@ class SettingsViewController: SettingsTableViewController {
             SettingItem(type: "group", title: NSLocalizedString("BACKUPS", comment: ""), items: [
                 SettingItem(type: "page", key: "Backups.backups", title: NSLocalizedString("BACKUPS", comment: ""))
             ]),
-            // MARK: Trackers
-            SettingItem(type: "group", title: NSLocalizedString("TRACKERS", comment: ""), items: [
-                SettingItem(type: "page", key: "Trackers.trackers", title: NSLocalizedString("TRACKERS", comment: ""))
-            ]),
+//            // MARK: Trackers
+//            SettingItem(type: "group", title: NSLocalizedString("TRACKERS", comment: ""), items: [
+//                SettingItem(type: "page", key: "Trackers.trackers", title: NSLocalizedString("TRACKERS", comment: ""))
+//            ]),
             // MARK: Logging
-            SettingItem(type: "group", title: NSLocalizedString("LOGGING", comment: ""), items: [
-                SettingItem(
-                    type: "text",
-                    key: "Logs.logServer",
-                    placeholder: NSLocalizedString("LOG_SERVER", comment: ""),
-                    notification: "Logs.logServer",
-                    autocapitalizationType: 0,
-                    autocorrectionType: 1,
-                    spellCheckingType: 1,
-                    keyboardType: 3
-                ),
-                SettingItem(type: "button", key: "Logs.export", title: NSLocalizedString("EXPORT_LOGS", comment: "")),
-                SettingItem(type: "button", key: "Logs.display", title: NSLocalizedString("DISPLAY_LOGS", comment: ""))
-            ]),
+//            SettingItem(type: "group", title: NSLocalizedString("LOGGING", comment: ""), items: [
+//                SettingItem(
+//                    type: "text",
+//                    key: "Logs.logServer",
+//                    placeholder: NSLocalizedString("LOG_SERVER", comment: ""),
+//                    notification: "Logs.logServer",
+//                    autocapitalizationType: 0,
+//                    autocorrectionType: 1,
+//                    spellCheckingType: 1,
+//                    keyboardType: 3
+//                ),
+//                SettingItem(type: "button", key: "Logs.export", title: NSLocalizedString("EXPORT_LOGS", comment: "")),
+//                SettingItem(type: "button", key: "Logs.display", title: NSLocalizedString("DISPLAY_LOGS", comment: ""))
+//            ]),
             // MARK: Advanced
             SettingItem(type: "group", title: NSLocalizedString("ADVANCED", comment: ""), items: [
 //                SettingItem(type: "button", key: "Advanced.clearChapterCache", title: NSLocalizedString("CLEAR_CHAPTER_CACHE", comment: "")),
-                SettingItem(type: "button", key: "Advanced.clearTrackedManga", title: NSLocalizedString("CLEAR_TRACKED_MANGA", comment: "")),
+//                SettingItem(type: "button", key: "Advanced.clearTrackedManga", title: NSLocalizedString("CLEAR_TRACKED_MANGA", comment: "")),
                 SettingItem(type: "button", key: "Advanced.clearNetworkCache", title: NSLocalizedString("CLEAR_NETWORK_CACHE", comment: "")),
                 SettingItem(type: "button", key: "Advanced.clearReadHistory", title: NSLocalizedString("CLEAR_READ_HISTORY", comment: "")),
-                SettingItem(type: "button", key: "Advanced.migrateHistory", title: "Migrate Chapter History"),
+//                SettingItem(type: "button", key: "Advanced.migrateHistory", title: "Migrate Chapter History"),
                 SettingItem(type: "button", key: "Advanced.resetSettings", title: NSLocalizedString("RESET_SETTINGS", comment: "")),
                 SettingItem(type: "button", key: "Advanced.reset", title: NSLocalizedString("RESET", comment: ""), destructive: true)
             ])
@@ -351,7 +352,7 @@ class SettingsViewController: SettingsTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // needed to update the selected value text for select settings
-        tableView.reloadData()
+//        tableView.reloadData()
     }
 
     func confirmAction(
@@ -399,8 +400,8 @@ extension SettingsViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let item = items[indexPath.section].items?[indexPath.row] {
             switch item.key {
-            case "About.about":
-                navigationController?.pushViewController(SettingsAboutViewController(), animated: true)
+//            case "About.about":
+//                navigationController?.pushViewController(SettingsAboutViewController(), animated: true)
 
             case "Library.categories":
                 navigationController?.pushViewController(CategoriesViewController(), animated: true)
@@ -411,29 +412,29 @@ extension SettingsViewController {
             case "Backups.backups":
                 navigationController?.pushViewController(BackupsViewController(), animated: true)
 
-            case "Trackers.trackers":
-                navigationController?.pushViewController(TrackersViewController(), animated: true)
+//            case "Trackers.trackers":
+//                navigationController?.pushViewController(TrackersViewController(), animated: true)
+//
+//            case "Logs.export":
+//                let url = LogManager.export()
+//                let vc = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+//                vc.popoverPresentationController?.sourceView = tableView
+//                vc.popoverPresentationController?.sourceRect = tableView.cellForRow(at: indexPath)!.frame
+//                present(vc, animated: true)
 
-            case "Logs.export":
-                let url = LogManager.export()
-                let vc = UIActivityViewController(activityItems: [url], applicationActivities: nil)
-                vc.popoverPresentationController?.sourceView = tableView
-                vc.popoverPresentationController?.sourceRect = tableView.cellForRow(at: indexPath)!.frame
-                present(vc, animated: true)
-
-            case "Logs.display":
-                navigationController?.pushViewController(LogViewController(), animated: true)
-
-//            case "Advanced.clearChapterCache":
-//                confirmAction(
-//                    title: NSLocalizedString("CLEAR_CHAPTER_CACHE", comment: ""),
-//                    message: NSLocalizedString("CLEAR_CHAPTER_CACHE_TEXT", comment: "")
-//                ) {
-//                    DataManager.shared.clearChapters()
-//                    Task {
-//                        await DataManager.shared.updateLibrary()
-//                    }
-//                }
+//            case "Logs.display":
+//                navigationController?.pushViewController(LogViewController(), animated: true)
+//
+////            case "Advanced.clearChapterCache":
+////                confirmAction(
+////                    title: NSLocalizedString("CLEAR_CHAPTER_CACHE", comment: ""),
+////                    message: NSLocalizedString("CLEAR_CHAPTER_CACHE_TEXT", comment: "")
+////                ) {
+////                    DataManager.shared.clearChapters()
+////                    Task {
+////                        await DataManager.shared.updateLibrary()
+////                    }
+////                }
             case "Advanced.clearTrackedManga":
                 confirmAction(
                     title: NSLocalizedString("CLEAR_TRACKED_MANGA", comment: ""),
@@ -538,7 +539,8 @@ extension SettingsViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         44
     }
-}
+ 
+} 
 
 // MARK: - Data Clearing Methods
 extension SettingsViewController {

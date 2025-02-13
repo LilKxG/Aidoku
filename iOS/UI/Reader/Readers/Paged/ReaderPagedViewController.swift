@@ -122,7 +122,7 @@ extension ReaderPagedViewController {
                 pageViewControllers.append(previousChapterPreviewController)
             } else {
                 let page = ReaderPageViewController(type: .page)
-                page.pageView?.imageView.addInteraction(UIContextMenuInteraction(delegate: self))
+//                page.pageView?.imageView.addInteraction(UIContextMenuInteraction(delegate: self))
                 pageViewControllers.append(page)
             }
         }
@@ -143,7 +143,7 @@ extension ReaderPagedViewController {
 
         for _ in startPos..<endPos {
             let page = ReaderPageViewController(type: .page)
-            page.pageView?.imageView.addInteraction(UIContextMenuInteraction(delegate: self))
+//            page.pageView?.imageView.addInteraction(UIContextMenuInteraction(delegate: self))
             pageViewControllers.append(page)
         }
 
@@ -165,7 +165,7 @@ extension ReaderPagedViewController {
                 pageViewControllers.append(nextChapterPreviewController)
             } else {
                 let page = ReaderPageViewController(type: .page)
-                page.pageView?.imageView.addInteraction(UIContextMenuInteraction(delegate: self))
+//                page.pageView?.imageView.addInteraction(UIContextMenuInteraction(delegate: self))
                 pageViewControllers.append(page)
             }
         }
@@ -464,45 +464,46 @@ extension ReaderPagedViewController: UIPageViewControllerDataSource {
 }
 
 // MARK: - Context Menu Delegate
-extension ReaderPagedViewController: UIContextMenuInteractionDelegate {
+//extension ReaderPagedViewController: UIContextMenuInteractionDelegate {
 
-    func contextMenuInteraction(
-        _ interaction: UIContextMenuInteraction,
-        configurationForMenuAtLocation location: CGPoint
-    ) -> UIContextMenuConfiguration? {
-        guard
-            UserDefaults.standard.bool(forKey: "Reader.saveImageOption"),
-            let pageView = interaction.view as? UIImageView,
-            pageView.image != nil
-        else {
-            return nil
-        }
-        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { _ in
-            let saveToPhotosAction = UIAction(
-                title: NSLocalizedString("SAVE_TO_PHOTOS", comment: ""),
-                image: UIImage(systemName: "photo")
-            ) { _ in
-                if let image = pageView.image {
-                    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-                }
-            }
+//    func contextMenuInteraction(
+//        _ interaction: UIContextMenuInteraction,
+//        configurationForMenuAtLocation location: CGPoint
+//    ) -> UIContextMenuConfiguration? {
+//        guard
+//            UserDefaults.standard.bool(forKey: "Reader.saveImageOption"),
+//            let pageView = interaction.view as? UIImageView,
+//            pageView.image != nil
+//        else {
+//            return nil
+//        }
+//        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { _ in
+//            let saveToPhotosAction = UIAction(
+//                title: NSLocalizedString("SAVE_TO_PHOTOS", comment: ""),
+//                image: UIImage(systemName: "photo")
+//            ) { _ in
+//                if let image = pageView.image {
+//                    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+//                }
+//            }
 
-            let shareAction = UIAction(
-                title: NSLocalizedString("SHARE", comment: ""),
-                image: UIImage(systemName: "square.and.arrow.up")
-            ) { _ in
-                if let image = pageView.image {
-                    let items = [image]
-                    let activityController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+//            let shareAction = UIAction(
+//                title: NSLocalizedString("SHARE", comment: ""),
+//                image: UIImage(systemName: "square.and.arrow.up")
+//            ) { _ in
+//                if let image = pageView.image {
+//                    let items = [image]
+//                    let activityController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+//
+//                    activityController.popoverPresentationController?.sourceView = self.view
+//                    activityController.popoverPresentationController?.sourceRect = CGRect(origin: location, size: .zero)
+//
+//                    self.present(activityController, animated: true)
+//                }
+//            }
 
-                    activityController.popoverPresentationController?.sourceView = self.view
-                    activityController.popoverPresentationController?.sourceRect = CGRect(origin: location, size: .zero)
-
-                    self.present(activityController, animated: true)
-                }
-            }
-
-            return UIMenu(title: "", children: [saveToPhotosAction, shareAction])
-        })
-    }
-}
+//            return UIMenu(title: "", children: [saveToPhotosAction])
+//            return UIMenu(title: "", children: [saveToPhotosAction, shareAction])
+//        })
+//    }
+//}

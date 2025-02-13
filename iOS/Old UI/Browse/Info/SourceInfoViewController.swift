@@ -4,7 +4,7 @@
 //
 //  Created by Skitty on 2/15/22.
 //
-
+// 章节列表页
 import UIKit
 import SafariServices
 
@@ -20,11 +20,11 @@ class SourceInfoViewController: SettingsTableViewController {
     }
 
     override func viewDidLoad() {
+        print("进入章节列表页")
         super.viewDidLoad()
-
         title = NSLocalizedString("SOURCE_INFO", comment: "")
-        navigationController?.navigationBar.prefersLargeTitles = true
-
+        navigationController?.navigationBar.prefersLargeTitles = false
+       
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .done,
             target: self,
@@ -44,7 +44,8 @@ class SourceInfoViewController: SettingsTableViewController {
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         tableView.register(TextInputTableViewCell.self, forCellReuseIdentifier: "TextInputTableViewCell")
-    }
+        
+     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

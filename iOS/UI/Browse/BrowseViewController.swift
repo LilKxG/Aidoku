@@ -27,7 +27,7 @@ class BrowseViewController: BaseTableViewController {
 
         title = NSLocalizedString("BROWSE", comment: "")
 
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.hidesSearchBarWhenScrolling = false
 
         // search controller
@@ -60,7 +60,7 @@ class BrowseViewController: BaseTableViewController {
         // empty text
         emptyStackView.title = NSLocalizedString("BROWSE_NO_SOURCES", comment: "")
         emptyStackView.text = NSLocalizedString("BROWSE_NO_SOURCES_TEXT", comment: "")
-        emptyStackView.buttonText = NSLocalizedString("ADDING_SOURCES_GUIDE_BUTTON", comment: "")
+//        emptyStackView.buttonText = NSLocalizedString("ADDING_SOURCES_GUIDE_BUTTON", comment: "")
         emptyStackView.addButtonTarget(self, action: #selector(openGuidePage))
         emptyStackView.showsButton = true
         emptyStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -140,6 +140,8 @@ class BrowseViewController: BaseTableViewController {
                 self.updateDataSource()
             }
         }
+        self.setStatusBarBackgroundColor()
+     
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -173,10 +175,10 @@ class BrowseViewController: BaseTableViewController {
     }
 
     @objc func openGuidePage() {
-        let safariViewController = SFSafariViewController(
-            url: URL(string: "https://aidoku.app/help/guides/getting-started/#installing-a-source")!
-        )
-        present(safariViewController, animated: true)
+//        let safariViewController = SFSafariViewController(
+//            url: URL(string: "https://aidoku.app/help/guides/getting-started/#installing-a-source")!
+//        )
+//        present(safariViewController, animated: true)
     }
 
     @objc func openLanguageSelectPage() {
@@ -491,20 +493,38 @@ extension BrowseViewController {
             } else {
                 globeImage = UIImage(systemName: "globe")
             }
-            navigationItem.rightBarButtonItems = [
-                UIBarButtonItem(
-                    image: globeImage,
-                    style: .plain,
-                    target: self,
-                    action: #selector(openLanguageSelectPage)
-                ),
-                UIBarButtonItem(
-                    image: UIImage(systemName: "arrow.left.arrow.right"),
-                    style: .plain,
-                    target: self,
-                    action: #selector(openMigrateSourcePage)
-                )
-            ]
+//            navigationItem.rightBarButtonItems = [
+//                UIBarButtonItem(
+//                    image: globeImage,
+//                    style: .plain,
+//                    target: self,
+//                    action: #selector(openLanguageSelectPage)
+//                ),
+//                UIBarButtonItem(
+//                    image: UIImage(systemName: "arrow.left.arrow.right"),
+//                    style: .plain,
+//                    target: self,
+//                    action: #selector(openMigrateSourcePage)
+//                )
+//            ]
         }
     }
 }
+extension BrowseViewController {
+//func setStatusBarBackgroundColor(){
+//    //静态时状态栏
+//        let statusBarview=UIView()
+//        statusBarview.backgroundColor = .systemGreen
+//        view.addSubview(statusBarview)
+//        statusBarview.translatesAutoresizingMaskIntoConstraints = false
+//        statusBarview.topAnchor.constraint(equalTo: view.topAnchor).isActive=true
+//        statusBarview.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive=true
+//        statusBarview.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive=true
+////        statusBarview.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive=true
+//        statusBarview.heightAnchor.constraint(equalToConstant: 90).isActive = true
+//        //滑动时状态栏
+//        navigationController?.navigationBar.barTintColor  = .systemGreen
+//
+//    }
+}
+
